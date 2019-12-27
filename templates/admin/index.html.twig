@@ -1,0 +1,48 @@
+{% extends 'admin/new.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+
+
+    <h1>La liste des médecins</h1>
+
+    
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Matricule</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Téléphone</th>
+        
+        <th scope="col">Service</th>
+        <th scope="col">Spécialité</th>
+        <th scope="col">Modifier ou Supprimer</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        
+        {% for Medecin in Medecins %}
+            <tr>
+                <td>{{ Medecin.id }}</td>
+                <td>{{ Medecin.matricule }}</td>
+                <td>{{ Medecin.nom }}</td>
+                <td>{{ Medecin.prenom }}</td>
+                <td>{{ Medecin.tel }}</td>
+                
+                <td>{{ Medecin.service }}</td>
+                <td>{{ Medecin.specialite }}</td>
+                <td> <a class="btn btn-success" href="http://127.0.0.1:8000/admin/medecin/edit/{{ Medecin.id }}"> Modifier</a> <a class="btn btn-danger" href="http://127.0.0.1:8000/admin/medecin/delete/{{ Medecin.id }}"> Supprimer</a> </td>
+               
+               
+            </tr> 
+        {% endfor %}
+            
+        
+    </tbody>
+  </table> 
+{% endblock %}

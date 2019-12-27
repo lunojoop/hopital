@@ -1,0 +1,28 @@
+{% extends "admin/addspecialite.html.twig" %}
+{% block body %}
+<div class="table">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Libellé specialite</th>
+            <th>Libellé specialite</th>
+            <th>Modifier ou Supprimer</th>
+          </tr>
+        </thead>
+        <tbody>
+                {% for Specialite in Specialites %}
+                <tr>  
+                    <td>{{ Specialite.id }}</td>
+                    <td>{{ Specialite.libelle }}</td>
+                    <td>{{ Specialite.libelle }}</td>
+                    
+                    <td> <a class="btn btn-success" href="http://127.0.0.1:8000/admin/specialite/edit/{{ Specialite.id }}"> Modifier</a> <a class="btn btn-danger" href="http://127.0.0.1:8000/admin/specialite/delete/{{ Specialite.id }}"> Supprimer</a> </td>
+                </tr>
+              {% endfor %}
+            
+        </tbody>
+      </table> 
+</div>
+
+{% endblock %}

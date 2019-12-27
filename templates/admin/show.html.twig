@@ -1,0 +1,25 @@
+{% extends "admin/addshow.html.twig" %}
+{% block body %}
+<div class="table">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Libellé service</th>
+            <th scope="col">Modifier ou Supprimer</th>
+          </tr>
+        </thead>
+        <tbody>
+                {% for Service in Services %}
+                <tr>  
+                    <td>{{ Service.id }}</td>
+                    <td>{{ Service.libelle }}</td>
+                    <td> <a class="btn btn-success" href="http://127.0.0.1:8000/admin/service/edit/{{ Service.id }}"> Modifier</a> <a class="btn btn-danger" href="http://127.0.0.1:8000/admin/service/delete/{{ Service.id }}"> Supprimer</a> </td>
+                </tr>
+              {% endfor %}
+            
+        </tbody>
+      </table> 
+</div>
+
+{% endblock %}
